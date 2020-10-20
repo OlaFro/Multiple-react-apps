@@ -6,7 +6,9 @@ class Display extends React.Component {
   render() {
     return (
       <div className="container border mb-3">
-        display{<ImgCard url={this.props.data.cover_photo.urls.thumb} />}
+        {this.props.data.map((element) => {
+          return <ImgCard url={element.cover_photo.urls.thumb} />;
+        })}
       </div>
     );
   }
