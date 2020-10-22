@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TableComp() {
+export default function TableComp(props) {
   return (
     <table class="table col-8 m-auto">
       <thead>
@@ -12,12 +12,16 @@ export default function TableComp() {
         </tr>
       </thead>
       <tbody>
-        {/* <tr>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>Birthday</td>
-          <td>City</td>
-        </tr> */}
+        {props.users.map((form, index) => {
+          return (
+            <tr key={index + 1}>
+              <td>{form.fName}</td>
+              <td>{form.lName}</td>
+              <td>{form.birthday}</td>
+              <td>{form.city}</td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );

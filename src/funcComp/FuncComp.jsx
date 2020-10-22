@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function FuncComp() {
+export default function FuncComp(props) {
   const [form, setForm] = useState({
     fName: "",
     lName: "",
@@ -42,7 +42,14 @@ export default function FuncComp() {
           name="city"
           placeholder="City"
         />
-        <div className="btn btn-primary my-3">Submit</div>
+        <div
+          className="btn btn-primary my-3"
+          onClick={() => {
+            props.setUsers([...props.users, form]);
+          }}
+        >
+          Submit
+        </div>
       </div>
     </div>
   );

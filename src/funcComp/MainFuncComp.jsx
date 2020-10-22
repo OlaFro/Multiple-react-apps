@@ -1,9 +1,11 @@
 import React from "react";
+
 import FuncComp from "./FuncComp";
 import TableComp from "./TableComp";
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 
 export default function MainFuncComp() {
+  const [users, setUsers] = React.useState([]);
   return (
     <div>
       <Router>
@@ -16,10 +18,10 @@ export default function MainFuncComp() {
 
         <Switch>
           <Route path="/FuncComp">
-            <FuncComp />
+            <FuncComp users={users} setUsers={setUsers} />
           </Route>
           <Route path="/TableComp">
-            <TableComp />
+            <TableComp users={users} />
           </Route>
         </Switch>
       </Router>
