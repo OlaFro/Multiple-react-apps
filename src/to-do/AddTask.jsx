@@ -49,7 +49,7 @@ class AddTask extends React.Component {
         </div>
         <button
           type="button"
-          class="btn btn-primary btn-sm my-2 d-flex"
+          className="btn btn-primary btn-sm my-2 d-flex"
           onClick={() => {
             this.props.submit(this.state.currTask);
           }}
