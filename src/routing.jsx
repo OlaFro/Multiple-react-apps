@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 import Main from "./photo-search/Main";
 import MainToDo from "./to-do/MainToDo";
-
+import Login from "./login/login";
 import About from "./about/About";
 
 class Routing extends React.Component {
@@ -13,6 +13,21 @@ class Routing extends React.Component {
       margin: "2rem 0 2rem 0",
       padding: "1rem",
     },
+    users: [
+      { email: "ola@ola.com", password: "123" },
+      { email: "alice@alice.com", password: "123" },
+      { email: "willy@willy.com", password: "123" },
+    ],
+    isLoggedIn: false,
+  };
+
+  isValueRight = (data) => {
+    let loggedIn = false;
+    loggedIn = this.state.users.some((elem) => {
+      return data.email === elem.email && data.password === elem.password;
+    });
+    console.log(loggedIn);
+    this.setState({ isLoggedIn: loggedIn });
   };
 
   render() {
@@ -35,9 +50,9 @@ class Routing extends React.Component {
             <About />
           </Route>
 
-          {/* <Route path="/funcComp/MainFuncComp">
-            <MainFuncComp />
-          </Route> */}
+          <Route path="/">
+            <Login check={this.isValueRight} />
+          </Route>
         </Switch>
       </Router>
     );
